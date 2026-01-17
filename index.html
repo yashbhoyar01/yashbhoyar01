@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerPath AI - Find Your Future</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <h2>Initializing CareerPath AI...</h2>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navBar" class="navbar hidden">
+        <div class="nav-brand">CareerPath AI</div>
+        <div class="nav-links">
+            <button id="dashboardBtn" class="nav-btn hidden">Dashboard</button>
+            <button id="roadmapBtn" class="nav-btn hidden">Roadmap</button>
+            <button id="logoutBtn" class="nav-btn hidden">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Landing Page -->
+    <section id="landingPage" class="page active">
+        <div class="hero">
+            <h1 class="hero-title">Discover Your<br><span class="gradient-text">Perfect Career Path</span></h1>
+            <p class="hero-subtitle">AI-powered assessment analyzes your interests and skills to recommend the best career roadmap with actionable steps.</p>
+            <div class="cta-buttons">
+                <button id="startAssessmentBtn" class="cta-primary">Start Assessment</button>
+                <button id="loginBtn" class="cta-secondary">Login</button>
+            </div>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Analysis</h3>
+                <p>Advanced algorithms match your answers to 6 career fields</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Progress Tracking</h3>
+                <p>Real-time dashboard with personalized roadmaps</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Actionable Steps</h3>
+                <p>Step-by-step guidance with skill gap analysis</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Page -->
+    <section id="loginPage" class="page hidden">
+        <div class="auth-container">
+            <div class="auth-card">
+                <h2>Welcome Back</h2>
+                <p>Login to access your career dashboard</p>
+                
+                <button id="googleLoginBtn" class="auth-btn google">
+                    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google"> Continue with Google
+                </button>
+                
+                <div class="divider">or</div>
+                
+                <form id="emailLoginForm">
+                    <input type="email" id="emailInput" placeholder="Email address" required>
+                    <input type="password" id="passwordInput" placeholder="Password" required>
+                    <button type="submit" class="auth-btn email">Continue with Email</button>
+                </form>
+                
+                <button id="createAccountBtn" class="link-btn">Create New Account</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assessment Page -->
+    <section id="assessmentPage" class="page hidden">
+        <div class="assessment-container">
+            <div class="progress-bar">
+                <div id="questionProgress" class="progress-fill"></div>
+            </div>
+            <div class="assessment-card">
+                <h2 id="questionTitle">Getting Started...</h2>
+                <p id="questionText"></p>
+                <div class="answer-buttons">
+                    <button id="yesBtn" class="answer-btn yes">Yes</button>
+                    <button id="noBtn" class="answer-btn no">No</button>
+                </div>
+                <div id="resultsPreview" class="results-preview hidden"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Page -->
+    <section id="dashboardPage" class="page hidden">
+        <div class="dashboard-header">
+            <h1>Your Career Profile</h1>
+            <div class="readiness-badge" id="readinessBadge"></div>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card primary" id="primaryCareerCard">
+                <h3 id="primaryCareerTitle">Loading...</h3>
+                <div class="score-circle" id="primaryScoreCircle">
+                    <span id="primaryScorePercent">0%</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <h4>Overall Readiness</h4>
+                <div class="progress-container">
+                    <div class="progress-bar-container">
+                        <div class="progress-label">Total Score</div>
+                        <div class="progress-fill total" id="totalProgress"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="career-scores-grid">
+            <h3>Field Scores</h3>
+            <div class="scores-container" id="careerScores"></div>
+        </div>
+
+        <div class="cta-section">
+            <button id="viewRoadmapBtn" class="cta-primary full-width">View Personalized Roadmap →</button>
+        </div>
+    </section>
+
+    <!-- Roadmap Page -->
+    <section id="roadmapPage" class="page hidden">
+        <div class="roadmap-header">
+            <h1 id="roadmapTitle">Your Roadmap</h1>
+            <p id="roadmapSubtitle">Step-by-step action plan tailored to your profile</p>
+        </div>
+        
+        <div class="roadmap-container" id="roadmapSteps"></div>
+        
+        <div class="roadmap-actions">
+            <button id="backToDashboardBtn" class="btn-secondary">← Back to Dashboard</button>
+            <button id="restartAssessmentBtn" class="btn-primary">Take New Assessment</button>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
