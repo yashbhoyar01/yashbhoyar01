@@ -1,0 +1,152 @@
+.roadmap-container {
+    min-height: 100vh;
+    padding: 100px 0 60px;
+}
+
+.roadmap-header {
+    margin-bottom: 48px;
+}
+
+.roadmap-title-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.roadmap-title-section h1 {
+    font-size: 2.5rem;
+}
+
+.level-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 2px solid;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.level-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.roadmap-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.roadmap-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 48px;
+}
+
+.roadmap-step {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    transition: var(--transition);
+}
+
+.roadmap-step:hover {
+    border-color: var(--border-hover);
+    transform: translateX(8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.step-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.step-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.step-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--primary);
+}
+
+.step-checkbox label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.roadmap-footer {
+    margin-top: 48px;
+}
+
+.footer-card {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    text-align: center;
+}
+
+.footer-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.footer-card p {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+    .roadmap-title-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .roadmap-title-section h1 {
+        font-size: 2rem;
+    }
+
+    .roadmap-step {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .roadmap-step:hover {
+        transform: translateY(-4px);
+    }
+}

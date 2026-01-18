@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill2Career</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Firebase SDK -->
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-title">Login</h2>
+            <form id="auth-form" class="auth-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" id="modal-btn">Login</button>
+            </form>
+            <p class="auth-toggle">
+                <span id="toggle-auth">Don't have an account? Register</span>
+            </p>
+        </div>
+    </div>
+    <script src="app (1).js" type="module"></script>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">CAREERPATH AI</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#status-section">Start</a></li>
+            <li><a href="#dashboard-section">Dashboard</a></li>
+            <li><a href="#roadmap-section">Roadmap</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO / BANNER -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title"><span class="white-text">CAREERPATH AI</span></h1>
+            <button id="login-btn">Login / Register</button>
+        </div>
+    </section>
+
+    <!-- CURRENT STATUS -->
+    <section id="status-section" class="section">
+        <div class="card">
+            <h2>Select Your Current Status</h2>
+            <div class="status-options">
+                <label><input type="radio" name="status" value="Student"> Student</label>
+                <label><input type="radio" name="status" value="Learning Skills"> Learning Skills</label>
+                <label><input type="radio" name="status" value="Working Professional"> Working Professional</label>
+                <label><input type="radio" name="status" value="Confused"> Confused</label>
+            </div>
+            <button id="status-next-btn">Next</button>
+        </div>
+    </section>
+
+    <!-- ASSESSMENT -->
+    <section id="assessment-section" class="section">
+        <div class="card">
+            <h2>Assessment</h2>
+            <div class="assessment-input">
+                <label>Logic Skill (1-5)</label>
+                <input type="number" id="logic" min="1" max="5">
+            </div>
+            <div class="assessment-input">
+                <label>Skill Knowledge (1-5)</label>
+                <input type="number" id="skill" min="1" max="5">
+            </div>
+            <div class="assessment-input">
+                <label>Consistency (1-5)</label>
+                <input type="number" id="consistency" min="1" max="5">
+            </div>
+            <button id="assessment-btn">Submit</button>
+        </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard-section" class="section">
+        <div class="card">
+            <h2>Dashboard</h2>
+            <div class="dashboard-info">
+                <p><strong>Score:</strong> <span id="score-display">0</span>/15</p>
+                <p><strong>Readiness Level:</strong> <span id="level-display">-</span></p>
+                <p><strong>Current Phase:</strong> <span id="phase-display">-</span></p>
+                <p><strong>Gaps:</strong> <span id="gaps-display">-</span></p>
+            </div>
+            <div class="progress-ring">
+                <svg width="120" height="120">
+                    <circle class="progress-ring__circle" stroke="#0ff" stroke-width="8" fill="transparent" r="52"
+                        cx="60" cy="60" />
+                </svg>
+                <span id="progress-text">0%</span>
+            </div>
+            <button id="dashboard-next-btn">View Roadmap</button>
+        </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap-section" class="section">
+        <h2 class="section-title">Your Roadmap</h2>
+        <div class="roadmap-cards">
+            <div class="phase-card" id="phase1">
+                <h3>Phase 1: Foundation</h3>
+                <p>Focus on logic and discipline.</p>
+            </div>
+            <div class="phase-card" id="phase2">
+                <h3>Phase 2: Skill Building</h3>
+                <p>Develop core skills and projects.</p>
+            </div>
+            <div class="phase-card" id="phase3">
+                <h3>Phase 3: Industry Ready</h3>
+                <p>Build portfolio and execute in real-world scenarios.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
